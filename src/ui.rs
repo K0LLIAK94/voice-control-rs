@@ -448,7 +448,15 @@ impl Ui {
                 } else {
                     &state.last_action
                 };
-                text(dc, self.small_font, MUTED, 29, 308, width - 58, 23, action);
+                // Leave room for two complete result lines before the command
+                // list; long status text must not disappear on one clipped line.
+                wrapped_text(
+                    dc,
+                    self.small_font,
+                    MUTED,
+                    rect(29, 308, width - 29, 346),
+                    action,
+                );
 
                 let top = 352;
                 for (index, (phrase, action)) in [
@@ -585,6 +593,21 @@ unsafe fn text(
             &mut data,
             &mut bounds,
             DT_LEFT | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS | DT_NOPREFIX,
+        );
+        let _ = SelectObject(dc, old);
+    }
+}
+
+unsafe fn wrapped_text(dc: HDC, font: HFONT, color: COLORREF, mut bounds: RECT, value: &str) {
+    unsafe {
+        let old = SelectObject(dc, HGDIOBJ(font.0));
+        let _ = SetTextColor(dc, color);
+        let mut data: Vec<u16> = value.encode_utf16().collect();
+        let _ = DrawTextW(
+            dc,
+            &mut data,
+            &mut bounds,
+            DT_LEFT | DT_WORDBREAK | DT_EDITCONTROL | DT_END_ELLIPSIS | DT_NOPREFIX,
         );
         let _ = SelectObject(dc, old);
     }

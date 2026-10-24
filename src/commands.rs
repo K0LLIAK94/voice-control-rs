@@ -11,6 +11,17 @@ pub enum Command {
     Unmute,
 }
 
+impl Command {
+    pub const fn label(self) -> &'static str {
+        match self {
+            Self::Play => "играй",
+            Self::Pause => "пауза",
+            Self::Mute => "мут",
+            Self::Unmute => "размут",
+        }
+    }
+}
+
 pub fn normalize(text: &str) -> String {
     text.trim_matches(|c: char| c.is_whitespace() || matches!(c, '.' | ',' | '!' | '?' | '…'))
         .to_lowercase()

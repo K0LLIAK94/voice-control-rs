@@ -77,7 +77,7 @@ impl Actions {
             return Ok("Повтор команды пропущен".into());
         }
         if self.dry_run {
-            return Ok(format!("Проверка без действий: {command:?}"));
+            return Ok(format!("Проверка без действий: {}", command.label()));
         }
         match command {
             Command::Play => windows_controls::media(MediaAction::Play),
@@ -85,12 +85,15 @@ impl Actions {
             Command::Mute | Command::Unmute => {
                 let requested = command == Command::Mute;
                 if self.discord_estimate == Some(requested) {
-                    return Ok("Insert уже отправлялся для этой команды. Если меняли мут вручную, сбросьте отслеживание Discord".into());
+                    return Ok(
+                        "Команда уже отправлена. После ручного Insert нажмите «Сбросить Discord»."
+                            .into(),
+                    );
                 }
-                let sent = windows_controls::discord_toggle()?;
+                windows_controls::discord_toggle()?;
                 self.discord_estimate = Some(requested);
                 Ok(format!(
-                    "{sent}. Ожидаемое состояние: {} (оценка)",
+                    "Insert отправлен · ожидаемое состояние: {} (оценка)",
                     if requested {
                         "мут"
                     } else {
@@ -114,8 +117,8 @@ fn observe(
     }
     let command = recognition.command(config);
     change(shared, |s| {
-        s.last_phrase = if command.is_some() {
-            recognition.text.clone()
+        s.last_phrase = if let Some(command) = command {
+            command.label().into()
         } else {
             "Речь не совпала с командой".into()
         }
@@ -181,9 +184,7 @@ impl SpeechWorker {
                     Ok(SpeechInput::ResetDiscord) => {
                         actions.discord_estimate = None;
                         change(&shared, |s| {
-                            s.last_action =
-                                "Отслеживание Discord сброшено; следующая команда отправит Insert"
-                                    .into()
+                            s.last_action = "Отслеживание Discord сброшено".into()
                         });
                     }
                     Ok(SpeechInput::Audio(utterance_epoch, samples)) => {
