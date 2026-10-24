@@ -12,7 +12,7 @@ Verified locally on Windows x64 with Rust 1.93.0 GNU:
 
 The native input function sent Insert down/up successfully. The actual mute-state transition in the user's Discord could not be established from the available UI. Insert is a toggle, and the application explicitly displays only a local estimate. Browser UI testing was stopped when the tool could not establish the URL; a later native preview was stopped with Escape. Those UI checks were not continued by alternate input methods.
 
-The runnable portable app was launched for the user's manual voice/Chrome/Discord acceptance test. These remaining live checks are not claimed as passed.
+The runnable portable app was launched for the user's manual voice/Chrome/Discord acceptance test. On 2026-10-24 the user reported that the application worked and accepted publication. This is user acceptance; the automated checks above retain their stated scope.
 
 Additional 4K UI validation: the real UI was tested in an owned, hidden test window on the actual 3840×2160 monitor with a 3840×2064 work area and 192 DPI (Windows 200%). Per-Monitor V2 was confirmed. At 100/125/75% manual zoom, the window, fonts and child buttons scaled together, remained in the work area, and zoom was persisted in a QA-only config. Reset restored the baseline. See `dpi.json`. No microphone, global input or user application was used by this harness.
 

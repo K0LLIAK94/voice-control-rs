@@ -28,7 +28,15 @@ try {
     Copy-Item -LiteralPath (Join-Path $root 'analysis\laitis-report.md') -Destination (Join-Path $bundle 'analysis\laitis-report.md') -Force
     Get-ChildItem -LiteralPath (Join-Path $root 'assets') -File | Copy-Item -Destination (Join-Path $bundle 'assets') -Force
     Copy-Item -LiteralPath (Join-Path $root 'docs\licenses') -Destination (Join-Path $bundle 'docs') -Recurse -Force
-    Compress-Archive -Path (Join-Path $bundle '*') -DestinationPath (Join-Path $root 'dist\VoiceControl-windows-x64.zip') -Force
+    Copy-Item -LiteralPath (Join-Path $root 'docs\screenshot.png') -Destination (Join-Path $bundle 'docs') -Force
+    # Publish only distribution files, never the running installation's logs or settings.
+    $archive = Join-Path $root ('target\packages\' + [Guid]::NewGuid().ToString('N'))
+    New-Item -ItemType Directory -Force -Path $archive | Out-Null
+    foreach ($name in @('voice-control.exe','voice-control-cli.exe','runtime','models','docs','assets','analysis','README.md','LICENSE','THIRD_PARTY_NOTICES.md')) {
+        Copy-Item -LiteralPath (Join-Path $bundle $name) -Destination $archive -Recurse -Force
+    }
+    Copy-Item -LiteralPath (Join-Path $root 'config.toml') -Destination $archive
+    Compress-Archive -Path (Join-Path $archive '*') -DestinationPath (Join-Path $root 'dist\VoiceControl-windows-x64.zip') -Force
     Get-FileHash -LiteralPath (Join-Path $root 'dist\VoiceControl-windows-x64.zip') -Algorithm SHA256
 }
 finally { Pop-Location }
