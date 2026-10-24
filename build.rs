@@ -2,6 +2,7 @@ use std::{env, fs, path::PathBuf, process::Command};
 
 fn main() {
     println!("cargo:rerun-if-changed=assets/icon-idle.ico");
+    println!("cargo:rerun-if-changed=assets/voice-control.manifest");
     if env::var("CARGO_CFG_TARGET_OS").as_deref() != Ok("windows") {
         return;
     }
@@ -14,10 +15,15 @@ fn main() {
     let resource = output.join("voice-control.rc");
     let compiled = output.join("voice-control.res");
     let icon = icon.to_string_lossy().replace('\\', "/");
+    let manifest = root
+        .join("assets/voice-control.manifest")
+        .to_string_lossy()
+        .replace('\\', "/");
     fs::write(
         &resource,
         format!(
             r#"1 ICON "{icon}"
+1 24 "{manifest}"
 1 VERSIONINFO
  FILEVERSION 0,1,0,0
  PRODUCTVERSION 0,1,0,0

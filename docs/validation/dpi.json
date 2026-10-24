@@ -1,0 +1,394 @@
+{
+  "baseline": {
+    "buttons": [
+      {
+        "bounds": {
+          "bottom": 1535,
+          "height": 80,
+          "left": 216,
+          "right": 586,
+          "top": 1455,
+          "width": 370
+        },
+        "font_height": -30,
+        "id": 101,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1535,
+          "height": 80,
+          "left": 610,
+          "right": 1518,
+          "top": 1455,
+          "width": 908
+        },
+        "font_height": -30,
+        "id": 102,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1611,
+          "height": 60,
+          "left": 216,
+          "right": 634,
+          "top": 1551,
+          "width": 418
+        },
+        "font_height": -30,
+        "id": 103,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1611,
+          "height": 60,
+          "left": 658,
+          "right": 1076,
+          "top": 1551,
+          "width": 418
+        },
+        "font_height": -30,
+        "id": 104,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1611,
+          "height": 60,
+          "left": 1100,
+          "right": 1518,
+          "top": 1551,
+          "width": 418
+        },
+        "font_height": -30,
+        "id": 105,
+        "inside_client": true
+      }
+    ],
+    "client": {
+      "bottom": 1429,
+      "height": 1429,
+      "left": 0,
+      "right": 1414,
+      "top": 0,
+      "width": 1414
+    },
+    "dpi": 192,
+    "fits_work_area": true,
+    "per_monitor_v2": true,
+    "title": "Voice Control — Масштаб 100%",
+    "window": {
+      "bottom": 1647,
+      "height": 1500,
+      "left": 147,
+      "right": 1587,
+      "top": 147,
+      "width": 1440
+    },
+    "work_area": {
+      "bottom": 2064,
+      "height": 2064,
+      "left": 0,
+      "right": 3840,
+      "top": 0,
+      "width": 3840
+    }
+  },
+  "larger": {
+    "buttons": [
+      {
+        "bounds": {
+          "bottom": 1885,
+          "height": 100,
+          "left": 230,
+          "right": 693,
+          "top": 1785,
+          "width": 463
+        },
+        "font_height": -38,
+        "id": 101,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1885,
+          "height": 100,
+          "left": 723,
+          "right": 1866,
+          "top": 1785,
+          "width": 1143
+        },
+        "font_height": -38,
+        "id": 102,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1980,
+          "height": 75,
+          "left": 230,
+          "right": 755,
+          "top": 1905,
+          "width": 525
+        },
+        "font_height": -38,
+        "id": 103,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1980,
+          "height": 75,
+          "left": 785,
+          "right": 1310,
+          "top": 1905,
+          "width": 525
+        },
+        "font_height": -38,
+        "id": 104,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1980,
+          "height": 75,
+          "left": 1340,
+          "right": 1865,
+          "top": 1905,
+          "width": 525
+        },
+        "font_height": -38,
+        "id": 105,
+        "inside_client": true
+      }
+    ],
+    "client": {
+      "bottom": 1804,
+      "height": 1804,
+      "left": 0,
+      "right": 1774,
+      "top": 0,
+      "width": 1774
+    },
+    "dpi": 192,
+    "fits_work_area": true,
+    "per_monitor_v2": true,
+    "title": "Voice Control — Масштаб 125%",
+    "window": {
+      "bottom": 2022,
+      "height": 1875,
+      "left": 147,
+      "right": 1947,
+      "top": 147,
+      "width": 1800
+    },
+    "work_area": {
+      "bottom": 2064,
+      "height": 2064,
+      "left": 0,
+      "right": 3840,
+      "top": 0,
+      "width": 3840
+    }
+  },
+  "limitations": "Single actual monitor DPI; no screenshot, browser, global keyboard injection or physical monitor move tested",
+  "passed": true,
+  "reset": {
+    "buttons": [
+      {
+        "bounds": {
+          "bottom": 1535,
+          "height": 80,
+          "left": 216,
+          "right": 586,
+          "top": 1455,
+          "width": 370
+        },
+        "font_height": -30,
+        "id": 101,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1535,
+          "height": 80,
+          "left": 610,
+          "right": 1518,
+          "top": 1455,
+          "width": 908
+        },
+        "font_height": -30,
+        "id": 102,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1611,
+          "height": 60,
+          "left": 216,
+          "right": 634,
+          "top": 1551,
+          "width": 418
+        },
+        "font_height": -30,
+        "id": 103,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1611,
+          "height": 60,
+          "left": 658,
+          "right": 1076,
+          "top": 1551,
+          "width": 418
+        },
+        "font_height": -30,
+        "id": 104,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1611,
+          "height": 60,
+          "left": 1100,
+          "right": 1518,
+          "top": 1551,
+          "width": 418
+        },
+        "font_height": -30,
+        "id": 105,
+        "inside_client": true
+      }
+    ],
+    "client": {
+      "bottom": 1429,
+      "height": 1429,
+      "left": 0,
+      "right": 1414,
+      "top": 0,
+      "width": 1414
+    },
+    "dpi": 192,
+    "fits_work_area": true,
+    "per_monitor_v2": true,
+    "title": "Voice Control — Масштаб 100%",
+    "window": {
+      "bottom": 1647,
+      "height": 1500,
+      "left": 147,
+      "right": 1587,
+      "top": 147,
+      "width": 1440
+    },
+    "work_area": {
+      "bottom": 2064,
+      "height": 2064,
+      "left": 0,
+      "right": 3840,
+      "top": 0,
+      "width": 3840
+    }
+  },
+  "scope": "real product UI using own hidden native test window; no worker or microphone",
+  "smaller": {
+    "buttons": [
+      {
+        "bounds": {
+          "bottom": 1185,
+          "height": 60,
+          "left": 202,
+          "right": 480,
+          "top": 1125,
+          "width": 278
+        },
+        "font_height": -23,
+        "id": 101,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1185,
+          "height": 60,
+          "left": 498,
+          "right": 1173,
+          "top": 1125,
+          "width": 675
+        },
+        "font_height": -23,
+        "id": 102,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1242,
+          "height": 45,
+          "left": 202,
+          "right": 513,
+          "top": 1197,
+          "width": 311
+        },
+        "font_height": -23,
+        "id": 103,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1242,
+          "height": 45,
+          "left": 531,
+          "right": 842,
+          "top": 1197,
+          "width": 311
+        },
+        "font_height": -23,
+        "id": 104,
+        "inside_client": true
+      },
+      {
+        "bounds": {
+          "bottom": 1242,
+          "height": 45,
+          "left": 859,
+          "right": 1170,
+          "top": 1197,
+          "width": 311
+        },
+        "font_height": -23,
+        "id": 105,
+        "inside_client": true
+      }
+    ],
+    "client": {
+      "bottom": 1054,
+      "height": 1054,
+      "left": 0,
+      "right": 1054,
+      "top": 0,
+      "width": 1054
+    },
+    "dpi": 192,
+    "fits_work_area": true,
+    "per_monitor_v2": true,
+    "title": "Voice Control — Масштаб 75%",
+    "window": {
+      "bottom": 1272,
+      "height": 1125,
+      "left": 147,
+      "right": 1227,
+      "top": 147,
+      "width": 1080
+    },
+    "work_area": {
+      "bottom": 2064,
+      "height": 2064,
+      "left": 0,
+      "right": 3840,
+      "top": 0,
+      "width": 3840
+    }
+  },
+  "zoom_persisted_after_plus": 125
+}

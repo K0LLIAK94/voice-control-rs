@@ -190,8 +190,14 @@ pub fn entry() -> Result<()> {
             std::thread::sleep(std::time::Duration::from_millis(150));
         }
     } else {
-        // Config path is intentionally re-derived after its clone moved into the worker.
-        let result = ui::run(shared, tx.clone(), ui_config, log_path);
+        // UI zoom is independent of the speech worker's model and command settings.
+        let result = ui::run(
+            shared,
+            tx.clone(),
+            ui_config,
+            log_path,
+            config.ui_scale_percent,
+        );
         let _ = tx.send(app::Control::Quit);
         let _ = worker.join();
         return result;

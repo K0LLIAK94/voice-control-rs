@@ -11,6 +11,8 @@ pub struct Config {
     pub library_path: PathBuf,
     pub min_confidence: f32,
     pub cooldown_ms: u64,
+    /// Interface zoom, independent of the monitor's Windows DPI setting.
+    pub ui_scale_percent: u32,
     /// Recognition-only phrases keep negations and similar sounding words out of command routing.
     pub ignored_phrases: Vec<String>,
     pub commands: Commands,
@@ -45,6 +47,7 @@ impl Default for Config {
             library_path: "runtime/libvosk.dll".into(),
             min_confidence: 0.65,
             cooldown_ms: 900,
+            ui_scale_percent: 100,
             ignored_phrases: [
                 "мутант",
                 "не ставь на паузу",
@@ -79,6 +82,9 @@ impl Config {
     }
 
     pub fn validate(&self) -> Result<()> {
+        if !(75..=200).contains(&self.ui_scale_percent) {
+            bail!("ui_scale_percent: допустимо 75..200");
+        }
         if !self.min_confidence.is_finite() || !(0.0..=1.0).contains(&self.min_confidence) {
             bail!("min_confidence должен быть от 0 до 1");
         }
@@ -127,4 +133,16 @@ impl Config {
             self.library_path = root.join(&self.library_path);
         }
     }
+}
+
+pub fn save_ui_scale(path: &Path, percent: u32) -> Result<()> {
+    if !(75..=200).contains(&percent) {
+        bail!("Масштаб интерфейса должен быть от 75 до 200%");
+    }
+    let mut document = std::fs::read_to_string(path)?.parse::<toml_edit::DocumentMut>()?;
+    document["ui_scale_percent"] = toml_edit::value(i64::from(percent));
+    let temporary = path.with_extension(format!("ui-{}.tmp", std::process::id()));
+    std::fs::write(&temporary, document.to_string())
+        .context("Не удалось сохранить масштаб интерфейса")?;
+    std::fs::rename(&temporary, path).context("Не удалось обновить настройки масштаба")
 }

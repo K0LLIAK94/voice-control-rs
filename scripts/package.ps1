@@ -17,8 +17,12 @@ try {
         Copy-Item -LiteralPath (Join-Path $root "runtime\$name") -Destination (Join-Path $bundle 'runtime') -Force
     }
     Copy-Item -LiteralPath (Join-Path $root 'models\vosk-model-small-ru-0.22') -Destination (Join-Path $bundle 'models') -Recurse -Force
-    foreach ($name in @('README.md','LICENSE','THIRD_PARTY_NOTICES.md','config.toml')) {
+    foreach ($name in @('README.md','LICENSE','THIRD_PARTY_NOTICES.md')) {
         Copy-Item -LiteralPath (Join-Path $root $name) -Destination $bundle -Force
+    }
+    # Preserve the portable installation's chosen microphone, vocabulary and UI zoom.
+    if (!(Test-Path -LiteralPath (Join-Path $bundle 'config.toml'))) {
+        Copy-Item -LiteralPath (Join-Path $root 'config.toml') -Destination $bundle
     }
     Copy-Item -LiteralPath (Join-Path $root 'analysis\laitis-report.md') -Destination (Join-Path $bundle 'docs\laitis-report.md') -Force
     Copy-Item -LiteralPath (Join-Path $root 'analysis\laitis-report.md') -Destination (Join-Path $bundle 'analysis\laitis-report.md') -Force

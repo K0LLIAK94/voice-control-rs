@@ -1,7 +1,7 @@
 {
-  "tested_at": "2026-10-24T20:50:37.6577143+03:00",
+  "tested_at": "2026-10-24T21:07:11.3074306+03:00",
   "executable": "C:\\dev\\voice-control\\target\\release\\voice-control-cli.exe",
-  "executable_sha256": "9d23e2529c89e17edb7223c1aca05b115c7994b46f343955984443e4a82a940f",
+  "executable_sha256": "2fddd809677a12802f6550716e51952ae137b8a667d7bbb68785b8916a29caf0",
   "voice": "Microsoft Irina Desktop",
   "live_side_effects": false,
   "scope": "Synthesized Russian WAV -> application recognizer -> command router",
