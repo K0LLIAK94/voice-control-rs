@@ -1,0 +1,12 @@
+/target/
+/dist/
+/runtime/
+/models/
+/Laitis.exe
+/analysis/*
+!/analysis/laitis-report.md
+!/analysis/laitis-evidence-summary.json
+/tests/audio/
+*.log
+*.tmp
+.DS_Store

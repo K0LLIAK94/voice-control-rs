@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">Voice Control: слышу речь</title>
+  <desc id="description">Зелёный микрофон с расходящимися звуковыми волнами.</desc>
+  <rect x="2" y="2" width="60" height="60" rx="17" fill="#16403d"/>
+  <rect x="25" y="11" width="14" height="25" rx="7" fill="#94f3cc"/>
+  <path d="M19 29v3a13 13 0 0 0 26 0v-3M32 45v8M24 53h16" fill="none" stroke="#94f3cc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 20c-4 4-4 14 0 18M52 20c4 4 4 14 0 18" fill="none" stroke="#94f3cc" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

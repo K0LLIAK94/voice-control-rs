@@ -1,0 +1,142 @@
+{
+  "schema": "voice-control.laitis-reconstruction-facts.v1",
+  "target": {
+    "name": "Laitis.exe",
+    "size_bytes": 1024680,
+    "sha256": "ef371b8d46b2ada46ce12b2ad15de0cca6d6fd836873bbe073d3636874e414b9",
+    "assembly_name": "Laitis",
+    "version": "6.7.6.4",
+    "mvid": "ff873f5c-4773-47dc-98e3-95d7df4e2c91",
+    "framework": ".NETFramework,Version=v4.5",
+    "implementation": "CIL",
+    "managed_architecture": "anycpu"
+  },
+  "method": "REA 6.7.0 static managed inspection plus local dncil decoding and static constant-pool reconstruction; no target execution or network speech request",
+  "evidence_ids": [
+    "ev_8ff654c504e234f7aebdd6c4fae5d6436160f24b0941bf26055b8021d2942cdd",
+    "ev_2b433283f80f5046755580ad952315bf6297950246316fb4ab3e89f03f935ad5",
+    "ev_c80615144f0064f822af3af12e1cc9e8ed66b8dd0df152c63bb2c90db90e2fe9",
+    "ev_66ae74dfdbb6b9c99762a4c6b0aa990d652db1400c6235c2672431cc5d551361",
+    "ev_66571e8355f46e9f000e9370384b3fa7250097dd82b87ef386e43545409128d5"
+  ],
+  "capture": {
+    "sample_rate_hz": 16000,
+    "pcm_bits": 16,
+    "channels": 1,
+    "block_ms": 40,
+    "block_samples": 640,
+    "block_bytes": 1280,
+    "device_buffers": 4,
+    "native_api": "winmm.dll waveInOpen/waveInPrepareHeader/waveInAddBuffer/waveInStart",
+    "constructor_method": "0x06000b6d",
+    "start_method": "0x06000371",
+    "callback_method": "0x06000374"
+  },
+  "vad": {
+    "states": [
+      "waiting",
+      "preparing",
+      "recording"
+    ],
+    "constructor_method": "0x06000407",
+    "level_method": "0x06000404",
+    "level_formula": "max(0, signed_i16(high_byte<<8)) / 327.0, over sample high bytes only",
+    "rise_profiles": [
+      0.5,
+      2,
+      3,
+      5,
+      15
+    ],
+    "floor_profiles": [
+      0,
+      1,
+      4,
+      6,
+      10
+    ],
+    "default_profile_index": 0,
+    "onset_factor": 3,
+    "previous_level_initial": 1,
+    "onset_formula": "level > floor && level > previous + rise",
+    "adaptive_onset_formula": "level > (floor+rise)*3*2 increases profile",
+    "preroll_capacity_declared": 4,
+    "preroll_chunks_effective": 5,
+    "preparing_accept_bytes_gt": 5333,
+    "preparing_new_chunks_at_1280bytes": 5,
+    "preparing_silence_ms_gt": 99,
+    "preparing_silence_effective_ms": 120,
+    "recording_silence_ms_gt": 500,
+    "recording_silence_effective_ms": 520,
+    "recording_bytes_limit_gt": 320000,
+    "waiting_method": "0x0600038e",
+    "preparing_method": "0x06000380",
+    "recording_method": "0x06000385"
+  },
+  "speech_backends": [
+    {
+      "selector": 0,
+      "default": true,
+      "provider": "Google",
+      "protocol": "legacy full-duplex HTTP paired upload/download",
+      "upload_endpoint_without_query": "https://www.google.com/speech-api/full-duplex/v1/up",
+      "download_endpoint_without_query": "https://www.google.com/speech-api/full-duplex/v1/down",
+      "upload_method": "POST",
+      "download_method": "GET",
+      "content_type": "audio/l16; rate=16000;",
+      "upload_constructor_method": "0x060003b8",
+      "download_constructor_method": "0x060003b9",
+      "server_availability_verified": false
+    },
+    {
+      "selector": 1,
+      "provider": "Yandex",
+      "protocol": "WebSocket",
+      "endpoint_without_query": "wss://webasr.yandex.net/asrsocket.ws",
+      "content_format": "audio/x-pcm;bit=16;rate=16000",
+      "server_vad_requested": false,
+      "connect_state_machine": "0x0600032b",
+      "server_availability_verified": false
+    },
+    {
+      "selector": 2,
+      "provider": "Windows System.Speech",
+      "protocol": "local SpeechRecognitionEngine + DictationGrammar",
+      "recognize_method": "0x06000320",
+      "sample_rate_hz": 16000,
+      "pcm_bits": 16,
+      "channels": 1,
+      "installed_language_verified": false
+    },
+    {
+      "selector": 7,
+      "provider": "Bing",
+      "protocol": "HTTP interactive recognition REST",
+      "endpoint_without_query": "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1",
+      "request_constructor_method": "0x06000306",
+      "server_availability_verified": false
+    }
+  ],
+  "actions": {
+    "router_method": "0x0600054a",
+    "router_observed_duplicate_identity": [
+      "GUID",
+      "text"
+    ],
+    "keyboard_native_api": "user32.dll SendInput",
+    "keyboard_pinvoke_method": "0x06000875",
+    "keyboard_dispatch_method": "0x06000879"
+  },
+  "independent_reimplementation_choices": {
+    "default_stt": "Vosk local Russian model; not present in Laitis",
+    "secret_reuse": false,
+    "proprietary_binary_redistribution": false
+  },
+  "limitations": [
+    "Static facts are scoped to this exact SHA256/MVID.",
+    "No Laitis runtime, cloud response, saved user preference, microphone or Discord keybind was verified.",
+    "Cloud acoustic models and original unobfuscated source were not recovered.",
+    "Native API declarations identify imports, not observed runtime calls."
+  ],
+  "raw_evidence_policy": "Complete original evidence and derived proprietary bytes are retained locally and excluded from version control. This summary contains no authorization values."
+}

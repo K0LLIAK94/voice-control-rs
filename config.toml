@@ -1,0 +1,27 @@
+microphone = ""
+model_path = "models/vosk-model-small-ru-0.22"
+library_path = "runtime/libvosk.dll"
+min_confidence = 0.65
+cooldown_ms = 900
+ignored_phrases = [
+    "мутант", "не ставь на паузу", "не играй", "не пауза", "не мут",
+    "не раз мут", "не включай микрофон", "не выключай микрофон", "не надо",
+]
+
+[commands]
+play = [
+    "играй",
+    "продолжи",
+]
+pause = [
+    "пауза",
+    "поставь на паузу",
+]
+mute = [
+    "мут",
+    "выключи микрофон",
+]
+unmute = [
+    "раз мут",
+    "включи микрофон",
+]

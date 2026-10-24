@@ -1,0 +1,142 @@
+{
+  "tested_at": "2026-10-24T20:50:37.6577143+03:00",
+  "executable": "C:\\dev\\voice-control\\target\\release\\voice-control-cli.exe",
+  "executable_sha256": "9d23e2529c89e17edb7223c1aca05b115c7994b46f343955984443e4a82a940f",
+  "voice": "Microsoft Irina Desktop",
+  "live_side_effects": false,
+  "scope": "Synthesized Russian WAV -> application recognizer -> command router",
+  "limitations": "Does not validate live microphone capture, real-speaker accents/noise, Discord hotkey delivery or a media player.",
+  "passed": true,
+  "passed_count": 10,
+  "total_count": 10,
+  "results": [
+    {
+      "id": "play",
+      "input_text": "играй",
+      "expected_command": "play",
+      "passed": true,
+      "error": null,
+      "events": [
+        {
+          "command": "play",
+          "confidence": 1.0,
+          "text": "играй"
+        }
+      ]
+    },
+    {
+      "id": "pause",
+      "input_text": "пауза",
+      "expected_command": "pause",
+      "passed": true,
+      "error": null,
+      "events": [
+        {
+          "command": "pause",
+          "confidence": 1.0,
+          "text": "пауза"
+        }
+      ]
+    },
+    {
+      "id": "mute",
+      "input_text": "мут",
+      "expected_command": "mute",
+      "passed": true,
+      "error": null,
+      "events": [
+        {
+          "command": "mute",
+          "confidence": 1.0,
+          "text": "мут"
+        }
+      ]
+    },
+    {
+      "id": "unmute",
+      "input_text": "размут",
+      "expected_command": "unmute",
+      "passed": true,
+      "error": null,
+      "events": [
+        {
+          "command": "unmute",
+          "confidence": 1.0,
+          "text": "раз мут"
+        }
+      ]
+    },
+    {
+      "id": "unmute-phrase",
+      "input_text": "включи микрофон",
+      "expected_command": "unmute",
+      "passed": true,
+      "error": null,
+      "events": [
+        {
+          "command": "unmute",
+          "confidence": 1.0,
+          "text": "включи микрофон"
+        }
+      ]
+    },
+    {
+      "id": "negative-greeting",
+      "input_text": "привет как дела",
+      "expected_command": null,
+      "passed": true,
+      "error": null,
+      "events": []
+    },
+    {
+      "id": "negative-weather",
+      "input_text": "сегодня хорошая погода",
+      "expected_command": null,
+      "passed": true,
+      "error": null,
+      "events": [
+        {
+          "command": null,
+          "confidence": 0.8609679937362671,
+          "text": "[unk]"
+        }
+      ]
+    },
+    {
+      "id": "negative-word-boundary",
+      "input_text": "мутант",
+      "expected_command": null,
+      "passed": true,
+      "error": null,
+      "events": [
+        {
+          "command": null,
+          "confidence": 1.0,
+          "text": "мутант"
+        }
+      ]
+    },
+    {
+      "id": "negative-negation",
+      "input_text": "не ставь на паузу",
+      "expected_command": null,
+      "passed": true,
+      "error": null,
+      "events": [
+        {
+          "command": null,
+          "confidence": 1.0,
+          "text": "не ставь на паузу"
+        }
+      ]
+    },
+    {
+      "id": "silence",
+      "input_text": "",
+      "expected_command": null,
+      "passed": true,
+      "error": null,
+      "events": []
+    }
+  ]
+}
